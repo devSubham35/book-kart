@@ -1,0 +1,175 @@
+"use client";
+
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  BookOpen,
+  ShoppingCart,
+  Truck,
+  DollarSign,
+  Star,
+  ShieldCheck,
+  Headphones,
+} from "lucide-react";
+
+export default function Home() {
+  return (
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-background to-muted">
+      {/* Hero Section */}
+      <main className="min-h-[70vh] flex flex-col items-center justify-center flex-1 text-center px-6 py-20">
+        <h1 className="text-4xl md:text-6xl font-bold">
+          Buy & Sell Books <br /> Anytime, Anywhere
+        </h1>
+        <p className="text-lg text-muted-foreground mt-4 max-w-xl">
+          Discover thousands of books at unbeatable prices. Sell your old books,
+          buy new ones, and enjoy reading made simple.
+        </p>
+        <div className="flex gap-4 mt-6">
+          <Link href="/shop">
+            <Button className="rounded-full px-6 text-lg">Start Shopping</Button>
+          </Link>
+          <Link href="/sell">
+            <Button variant="outline" className="rounded-full px-6 text-lg">
+              Sell Books
+            </Button>
+          </Link>
+        </div>
+      </main>
+
+      {/* How It Works Section */}
+      <section className="py-16 px-6 bg-muted/20">
+        <h2 className="text-3xl font-bold text-center">How It Works</h2>
+        <p className="text-muted-foreground text-center max-w-2xl mx-auto mt-3 mb-10">
+          Buying or selling books has never been easier. Follow these simple
+          steps and get started in just minutes.
+        </p>
+        <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <Card className="p-6">
+            <CardContent className="flex flex-col items-center text-center gap-3">
+              <BookOpen className="w-10 h-10 text-primary" />
+              <h3 className="font-semibold text-lg">Browse Books</h3>
+              <p className="text-sm text-muted-foreground">
+                Explore our wide collection of new & pre-loved books.
+              </p>
+            </CardContent>
+          </Card>
+          <Card className="p-6">
+            <CardContent className="flex flex-col items-center text-center gap-3">
+              <ShoppingCart className="w-10 h-10 text-primary" />
+              <h3 className="font-semibold text-lg">Easy Purchase</h3>
+              <p className="text-sm text-muted-foreground">
+                Add books to cart, checkout securely, and enjoy reading.
+              </p>
+            </CardContent>
+          </Card>
+          <Card className="p-6">
+            <CardContent className="flex flex-col items-center text-center gap-3">
+              <Truck className="w-10 h-10 text-primary" />
+              <h3 className="font-semibold text-lg">Fast Delivery</h3>
+              <p className="text-sm text-muted-foreground">
+                Get books delivered to your doorstep in just a few days.
+              </p>
+            </CardContent>
+          </Card>
+          <Card className="p-6">
+            <CardContent className="flex flex-col items-center text-center gap-3">
+              <DollarSign className="w-10 h-10 text-primary" />
+              <h3 className="font-semibold text-lg">Sell Your Books</h3>
+              <p className="text-sm text-muted-foreground">
+                List your used books, set your price, and get paid quickly.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-16 px-6 text-center">
+        <h2 className="text-3xl font-bold">Why Choose Us</h2>
+        <p className="text-muted-foreground max-w-2xl mx-auto mt-3 mb-10">
+          We combine a passion for books with the latest technology to make your
+          reading journey seamless, affordable, and trustworthy.
+        </p>
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <Card className="p-6">
+            <CardContent className="flex flex-col items-center gap-3">
+              <Star className="w-10 h-10 text-primary" />
+              <h3 className="font-semibold text-lg">Wide Selection</h3>
+              <p className="text-sm text-muted-foreground">
+                From bestsellers to rare finds, we’ve got books for everyone.
+              </p>
+            </CardContent>
+          </Card>
+          <Card className="p-6">
+            <CardContent className="flex flex-col items-center gap-3">
+              <ShieldCheck className="w-10 h-10 text-primary" />
+              <h3 className="font-semibold text-lg">Trusted Platform</h3>
+              <p className="text-sm text-muted-foreground">
+                Secure payments, verified sellers, and reliable service.
+              </p>
+            </CardContent>
+          </Card>
+          <Card className="p-6">
+            <CardContent className="flex flex-col items-center gap-3">
+              <Headphones className="w-10 h-10 text-primary" />
+              <h3 className="font-semibold text-lg">24/7 Support</h3>
+              <p className="text-sm text-muted-foreground">
+                Our friendly team is always here to help you out.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* About Us & Contact Us Row Section */}
+      <section className="py-16 px-6 bg-background">
+        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {/* About Us */}
+          <div className="text-center md:text-left">
+            <h2 className="text-3xl font-bold">About Us</h2>
+            <p className="text-muted-foreground mt-3 mb-6">
+              We’re more than just a bookstore — we’re a community of book lovers
+              dedicated to making reading accessible for all.
+            </p>
+            <p className="text-muted-foreground text-lg">
+              Our platform connects readers and sellers, ensuring that every book
+              finds a new home. Whether you’re buying or selling, we make it simple,
+              affordable, and enjoyable.
+            </p>
+          </div>
+
+          {/* Contact Us */}
+          <div className="text-center md:text-left">
+            <h2 className="text-3xl font-bold mb-6">Contact Us</h2>
+            <p className="text-muted-foreground mb-6">
+              Have questions? We’d love to hear from you.
+            </p>
+            <form className="flex flex-col gap-4">
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="w-full border rounded-lg p-3"
+              />
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="w-full border rounded-lg p-3"
+              />
+              <textarea
+                placeholder="Your Message"
+                className="w-full border rounded-lg p-3 h-32"
+              />
+              <Button className="px-6 w-fit">Send Message</Button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="p-6 text-center text-sm text-muted-foreground border-t bg-background">
+        © {new Date().getFullYear()} Bookify. All rights reserved.
+      </footer>
+    </div>
+  );
+}
