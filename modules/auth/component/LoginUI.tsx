@@ -29,7 +29,7 @@ const LoginUI = () => {
 
     return (
         <div className="min-h-[calc(100vh-64px)] flex items-center justify-center">
-            <div className="max-w-sm w-full flex flex-col items-center border rounded-lg p-6 shadow-sm">
+            <div className="max-w-sm w-full flex flex-col items-center border rounded-lg p-6 shadow-sm  bg-card">
                 <div className="my-4 mb-6 text-center">
                     <h1 className="text-xl font-bold">
                         Welcome Back
