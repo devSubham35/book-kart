@@ -1,5 +1,5 @@
 import { bookData } from '@/data'
-import BookDetails from '@/modules/book/pages/BookDetailsUI'
+import BookDetails from '@/modules/book-details/pages/BookDetailsUI'
 
 const BookDetailsPage = () => {
   return (
