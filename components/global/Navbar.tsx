@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ThemeToggler } from "./ThemeToggler";
 import { Button } from "@/components/ui/button";
 import { PAGE_PATHS } from "@/routes/pagePaths";
+import SellBookUI from "@/modules/sell-book/pages/SellBookUI";
 
 const Navbar = () => {
 
@@ -20,18 +21,19 @@ const Navbar = () => {
             {/* {session ? (
               <ProfileAvatar session={session} onSignOut={signOut} />
             ) : ( */}
-              <>
-                <Link href={PAGE_PATHS.register}>
-                  <Button variant="outline" className="hidden sm:inline-flex">
-                    Register
-                  </Button>
-                </Link>
-                <Link href={PAGE_PATHS.login}>
-                  <Button className="hidden sm:inline-flex">
-                    Login
-                  </Button>
-                </Link>
-              </>
+            <>
+              <SellBookUI />
+              <Link href={PAGE_PATHS.register}>
+                <Button variant="outline" className="hidden sm:inline-flex">
+                  Register
+                </Button>
+              </Link>
+              <Link href={PAGE_PATHS.login}>
+                <Button className="hidden sm:inline-flex">
+                  Login
+                </Button>
+              </Link>
+            </>
             {/* )} */}
             <ThemeToggler />
           </div>
