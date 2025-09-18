@@ -8,10 +8,12 @@ interface BookCardProps {
     title: string;
     price: number;
     discount?: string;
-    isFavorite?: boolean;
-    originalPrice?: number;
     category?: string;
     condition?: string;
+    isFavorite?: boolean;
+    canBuy?: boolean;
+    isWishItem?: boolean;
+    originalPrice?: number;
     onFavoriteToggle?: () => void;
 }
 
@@ -20,23 +22,27 @@ const BookCard: React.FC<BookCardProps> = ({
     title,
     price,
     discount,
-    originalPrice,
     category,
     condition,
+    originalPrice,
+    canBuy = true,
     onFavoriteToggle,
+    isWishItem = true,
     isFavorite = false,
 }) => {
     return (
-        <div className="relative h-fit bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <div className="relative h-fit bg-white dark:bg-gray-800 
+        rounded-2xl overflow-hidden duration-300 border">
 
             {/* Favorite Button */}
-            <button
+            {isWishItem && <button
                 onClick={onFavoriteToggle}
                 className="absolute top-3 right-3 text-primary z-10 transition-colors duration-200 size-8 rounded-full
                 bg-secondary dark:bg-black flex items-center justify-center"
-                >
+            >
                 {isFavorite ? <IoHeartSharp size={20} /> : <IoHeartOutline size={20} />}
             </button>
+            }
 
             {/* Book Image */}
             <div className="relative flex justify-center">
@@ -75,10 +81,11 @@ const BookCard: React.FC<BookCardProps> = ({
                 </div>
             </div>
 
-            <Button className="w-full">
+            {canBuy && <Button className="w-full">
                 <span><FaCartShopping /></span>
                 Buy Now
             </Button>
+            }
         </div>
     );
 };

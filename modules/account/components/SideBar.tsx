@@ -1,11 +1,40 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { IoPersonOutline, IoHeartOutline } from "react-icons/io5";
-import { MdOutlineShoppingBag } from "react-icons/md";
+import Link from "next/link";
 import { TbLogout } from "react-icons/tb";
+import { AiFillProduct } from "react-icons/ai";
+import { PAGE_PATHS } from "@/routes/pagePaths";
+import { Button } from "@/components/ui/button";
+import { MdOutlineShoppingBag } from "react-icons/md";
+import { IoPersonOutline, IoHeartOutline } from "react-icons/io5";
+import { usePathname } from "next/navigation";
+
+const menuItems = [
+  {
+    label: "Profile",
+    icon: IoPersonOutline,
+    href: PAGE_PATHS.account.profile,
+  },
+  {
+    label: "Orders",
+    icon: MdOutlineShoppingBag,
+    href: PAGE_PATHS.account.orders,
+  },
+  {
+    label: "Products",
+    icon: AiFillProduct,
+    href: PAGE_PATHS.account.products,
+  },
+  {
+    label: "Wishlist",
+    icon: IoHeartOutline,
+    href: PAGE_PATHS.account.wishlist,
+  },
+];
 
 export default function Sidebar() {
+  const pathname = usePathname();
+
   return (
     <aside className="w-64 h-full p-4 flex flex-col justify-between bg-accent dark:bg-card rounded-xl">
       <div>
@@ -18,17 +47,24 @@ export default function Sidebar() {
 
         {/* Menu */}
         <nav className="space-y-2">
+          {menuItems.map(({ label, icon: Icon, href }) => {
+            const isActive = pathname === href;
 
-          <Button className="w-full justify-start">
-            <IoPersonOutline className="mr-2" /> My Profile
-          </Button>
-
-          <Button variant="ghost" className="w-full justify-start">
-            <MdOutlineShoppingBag className="mr-2" /> My Orders
-          </Button>
-          <Button variant="ghost" className="w-full justify-start">
-            <IoHeartOutline className="mr-2" /> Wishlist
-          </Button>
+            return (
+              <Button
+                key={label}
+                asChild
+                variant={isActive ? "default" : "ghost"}
+                className={`w-full justify-start ${
+                  isActive ? "bg-primary text-primary-foreground" : ""
+                }`}
+              >
+                <Link href={href}>
+                  <Icon className="mr-2" /> {label}
+                </Link>
+              </Button>
+            );
+          })}
         </nav>
       </div>
 

@@ -10,7 +10,7 @@ export default function AccountHeader({
   className = "",
 }: AccountHeaderProps) {
   return (
-    <div className={`p-4 ${className}`}>
+    <div className={`pb-2 ${className}`}>
       <h1 className="text-xl font-bold">{title}</h1>
       {description && (
         <p className="text-sm text-gray-500">{description}</p>
