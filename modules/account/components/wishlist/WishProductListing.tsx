@@ -6,6 +6,7 @@ const WishProductListing = () => {
         <div className="w-full grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
             {books.map((book) => (
                 <BookCard
+                    id={book.id}
                     key={book.id}
                     canBuy={true}
                     isFavorite={true}

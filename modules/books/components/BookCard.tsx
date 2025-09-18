@@ -1,9 +1,13 @@
+"use client"
 import Image from "next/image";
+import { useRouter } from 'next/navigation'
+import { PAGE_PATHS } from '@/routes/pagePaths';
 import { Button } from "@/components/ui/button";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoHeartOutline, IoHeartSharp } from "react-icons/io5";
 
 interface BookCardProps {
+    id?: string | number;
     image: string;
     title: string;
     price: number;
@@ -18,6 +22,7 @@ interface BookCardProps {
 }
 
 const BookCard: React.FC<BookCardProps> = ({
+    id,
     image,
     title,
     price,
@@ -30,6 +35,13 @@ const BookCard: React.FC<BookCardProps> = ({
     isWishItem = true,
     isFavorite = false,
 }) => {
+
+    const router = useRouter();
+
+    const handleNavigateProductDetailsPage = () => {
+        router.push(`${PAGE_PATHS.books}/${id}`)
+    }
+
     return (
         <div className="relative h-fit bg-white dark:bg-gray-800 
         rounded-2xl overflow-hidden duration-300 border">
@@ -45,7 +57,7 @@ const BookCard: React.FC<BookCardProps> = ({
             }
 
             {/* Book Image */}
-            <div className="relative flex justify-center">
+            <div onClick={handleNavigateProductDetailsPage} className="relative flex justify-center">
                 {/* Discount Badge */}
                 {discount && (
                     <div className="absolute bottom-2 left-2 bg-primary text-primary-foreground 
@@ -53,7 +65,7 @@ const BookCard: React.FC<BookCardProps> = ({
                         {discount} OFF
                     </div>
                 )}
-                <div className="w-full h-40 rounded-t-xl overflow-hidden shadow-md">
+                <div className="w-full h-40 rounded-t-xl overflow-hidden shadow-md cursor-pointer">
                     <Image
                         src={image}
                         alt={title}

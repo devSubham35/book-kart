@@ -6,6 +6,8 @@ export const PAGE_PATHS = {
         root: "/dashboard"
     },
 
+    books: "/books",
+
     account: {
         orders: "/account/orders",
         profile: "/account/profile",

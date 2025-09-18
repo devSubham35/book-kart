@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ProfileAvatar from "./ProfileAvatar";
 import { ThemeToggler } from "./ThemeToggler";
 import { Button } from "@/components/ui/button";
 import { PAGE_PATHS } from "@/routes/pagePaths";
@@ -18,27 +19,23 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-3">
-            {/* {session ? (
-              <ProfileAvatar session={session} onSignOut={signOut} />
-            ) : ( */}
-            <>
-              <SellBookUI />
-              <Link href={PAGE_PATHS.register}>
-                <Button variant="outline" className="hidden sm:inline-flex">
-                  Register
-                </Button>
-              </Link>
-              <Link href={PAGE_PATHS.login}>
-                <Button className="hidden sm:inline-flex">
-                  Login
-                </Button>
-              </Link>
-            </>
-            {/* )} */}
+            <ProfileAvatar onSignOut={() => { }} />
+
+            <SellBookUI />
+            <Link href={PAGE_PATHS.register}>
+              <Button variant="outline" className="hidden sm:inline-flex">
+                Register
+              </Button>
+            </Link>
+            <Link href={PAGE_PATHS.login}>
+              <Button className="hidden sm:inline-flex">
+                Login
+              </Button>
+            </Link>
             <ThemeToggler />
           </div>
         </div>
-      </nav>
+      </nav >
     </>
   );
 };

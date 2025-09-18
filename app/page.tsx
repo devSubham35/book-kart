@@ -2,16 +2,10 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { PAGE_PATHS } from "@/routes/pagePaths";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  BookOpen,
-  ShoppingCart,
-  Truck,
-  DollarSign,
-  Star,
-  ShieldCheck,
-  Headphones,
-} from "lucide-react";
+import { BookOpen, DollarSign, Headphones, ShieldCheck, ShoppingCart, Star, Truck } from "lucide-react";
+import SellBookUI from "@/modules/sell-book/pages/SellBookUI";
 
 export default function Home() {
   return (
@@ -26,14 +20,10 @@ export default function Home() {
           buy new ones, and enjoy reading made simple.
         </p>
         <div className="flex gap-4 mt-6">
-          <Link href="/shop">
-            <Button className="rounded-full px-6 text-lg">Start Shopping</Button>
+          <Link href={PAGE_PATHS.books}>
+            <Button className="text-base py-5">Start Shopping</Button>
           </Link>
-          <Link href="/sell">
-            <Button variant="outline" className="rounded-full px-6 text-lg">
-              Sell Books
-            </Button>
-          </Link>
+          <SellBookUI variant="outline" className="text-base py-5"/>
         </div>
       </main>
 
@@ -45,7 +35,7 @@ export default function Home() {
           steps and get started in just minutes.
         </p>
         <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          <Card className="p-6">
+          <Card className="p-6 shadow-none">
             <CardContent className="flex flex-col items-center text-center gap-3">
               <BookOpen className="w-10 h-10 text-primary" />
               <h3 className="font-semibold text-lg">Browse Books</h3>
@@ -54,7 +44,7 @@ export default function Home() {
               </p>
             </CardContent>
           </Card>
-          <Card className="p-6">
+          <Card className="p-6 shadow-none">
             <CardContent className="flex flex-col items-center text-center gap-3">
               <ShoppingCart className="w-10 h-10 text-primary" />
               <h3 className="font-semibold text-lg">Easy Purchase</h3>
@@ -63,7 +53,7 @@ export default function Home() {
               </p>
             </CardContent>
           </Card>
-          <Card className="p-6">
+          <Card className="p-6 shadow-none">
             <CardContent className="flex flex-col items-center text-center gap-3">
               <Truck className="w-10 h-10 text-primary" />
               <h3 className="font-semibold text-lg">Fast Delivery</h3>
@@ -72,7 +62,7 @@ export default function Home() {
               </p>
             </CardContent>
           </Card>
-          <Card className="p-6">
+          <Card className="p-6 shadow-none">
             <CardContent className="flex flex-col items-center text-center gap-3">
               <DollarSign className="w-10 h-10 text-primary" />
               <h3 className="font-semibold text-lg">Sell Your Books</h3>
@@ -92,7 +82,7 @@ export default function Home() {
           reading journey seamless, affordable, and trustworthy.
         </p>
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <Card className="p-6">
+          <Card className="p-6 shadow-none">
             <CardContent className="flex flex-col items-center gap-3">
               <Star className="w-10 h-10 text-primary" />
               <h3 className="font-semibold text-lg">Wide Selection</h3>
@@ -101,7 +91,7 @@ export default function Home() {
               </p>
             </CardContent>
           </Card>
-          <Card className="p-6">
+          <Card className="p-6 shadow-none">
             <CardContent className="flex flex-col items-center gap-3">
               <ShieldCheck className="w-10 h-10 text-primary" />
               <h3 className="font-semibold text-lg">Trusted Platform</h3>
@@ -110,7 +100,7 @@ export default function Home() {
               </p>
             </CardContent>
           </Card>
-          <Card className="p-6">
+          <Card className="p-6 shadow-none">
             <CardContent className="flex flex-col items-center gap-3">
               <Headphones className="w-10 h-10 text-primary" />
               <h3 className="font-semibold text-lg">24/7 Support</h3>

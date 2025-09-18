@@ -2,10 +2,13 @@ import { books } from '@/data'
 import BookCard from '@/modules/books/components/BookCard'
 
 const ProductListing = () => {
+
+
     return (
         <div className="w-full grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
             {books.map((book) => (
                 <BookCard
+                    id={book.id}
                     key={book.id}
                     canBuy={false}
                     isFavorite={true}

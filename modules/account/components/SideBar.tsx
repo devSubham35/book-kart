@@ -9,7 +9,7 @@ import { MdOutlineShoppingBag } from "react-icons/md";
 import { IoPersonOutline, IoHeartOutline } from "react-icons/io5";
 import { usePathname } from "next/navigation";
 
-const menuItems = [
+export const menuItems = [
   {
     label: "Profile",
     icon: IoPersonOutline,

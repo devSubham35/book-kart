@@ -2,11 +2,14 @@
 
 import * as React from "react";
 import { LogOut } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { menuItems } from "@/modules/account/components/SideBar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
   DropdownMenuSeparator, DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
+import Link from "next/link";
 
 interface ProfileAvatarProps {
   onSignOut?: () => void;
@@ -14,12 +17,14 @@ interface ProfileAvatarProps {
 
 const ProfileAvatar: React.FC<ProfileAvatarProps> = ({ onSignOut }) => {
 
+  const pathname = usePathname();
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Avatar className="cursor-pointer hover:opacity-90 transition">
+        <Avatar className="size-10 cursor-pointer hover:opacity-90 transition">
           <AvatarImage src="" alt="User" />
-          <AvatarFallback className="border">Subham</AvatarFallback>
+          <AvatarFallback className="border">S</AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
 
@@ -32,6 +37,28 @@ const ProfileAvatar: React.FC<ProfileAvatarProps> = ({ onSignOut }) => {
             </span>
           </div>
         </DropdownMenuLabel>
+        <DropdownMenuSeparator />
+
+        <div className="my-2">
+          {menuItems.map(({ label, icon: Icon, href }) => {
+            const isActive = pathname === href;
+
+            return (
+              <DropdownMenuItem
+                key={label}
+                asChild
+                className={`w-full justify-start font-medium ${isActive ? 
+                  "bg-primary !hover:bg-primary text-primary-foreground !hover:text-primary-foreground font-semibold" : ""
+                  }`}
+              >
+                <Link href={href}>
+                  <Icon className="mr-2 text-primary-foreground" /> {label}
+                </Link>
+              </DropdownMenuItem>
+            );
+          })}
+        </div>
+
         <DropdownMenuSeparator />
         <DropdownMenuItem
           className="cursor-pointer"
