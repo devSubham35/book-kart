@@ -45,7 +45,7 @@ const BookFilterPanel: React.FC<BookFilterPanelProps> = ({
     >
       <CollapsibleTrigger
         asChild
-        className="w-full flex justify-between items-center px-4 py-3 font-semibold text-base"
+        className="w-full flex justify-between items-center px-4 py-3 font-semibold text-base cursor-pointer"
       >
         <button>
           {title}
@@ -63,7 +63,7 @@ const BookFilterPanel: React.FC<BookFilterPanelProps> = ({
             <div
               key={opt.value}
               onClick={() => toggleValue(opt.value)}
-              className={`flex items-center gap-3 px-3 py-2 rounded-lg w-full transition-colors cursor-pointer
+              className={`flex items-center gap-3 py-1 rounded-lg w-full text-base transition-colors cursor-pointer
                 ${isSelected ? "text-primary font-semibold" : ""}`}
             >
               <Checkbox

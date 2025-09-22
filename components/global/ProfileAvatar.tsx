@@ -47,11 +47,11 @@ const ProfileAvatar: React.FC<ProfileAvatarProps> = ({ onSignOut }) => {
               <DropdownMenuItem
                 key={label}
                 asChild
-                className={`w-full justify-start font-medium ${isActive ? 
-                  "bg-primary !hover:bg-primary font-semibold" : ""
+                className={`w-full justify-start font-medium ${isActive ?
+                  "bg-primary font-semibold cursor-pointer dark:text-primary-foreground" : "cursor-pointer !hover:bg-primary"
                   }`}
               >
-                <Link href={href}>
+                <Link href={href} className="flex items-center">
                   <Icon className="mr-2" /> {label}
                 </Link>
               </DropdownMenuItem>
