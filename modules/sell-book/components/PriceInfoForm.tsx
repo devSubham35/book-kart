@@ -159,7 +159,7 @@ export default function PriceInfoForm({
             <div className="flex items-center justify-between">
               <FormItem className="flex items-center gap-2">
                 <Checkbox checked={field.value} onCheckedChange={field.onChange} />
-                <Label className="mt-2">Add Discount</Label>
+                <Label className="mb-[1px]">Add Discount</Label>
                 <FormMessage>{errors.discount_price?.message}</FormMessage>
               </FormItem>
 
@@ -214,14 +214,14 @@ export default function PriceInfoForm({
         {/* Shipping */}
         <div className="space-y-1">
           <div className="flex items-center justify-between">
-            <Label>Shipping Charges</Label>
+            <Label className="mb-1">Shipping Charges</Label>
             <FormField
               control={control}
               name="shipping_free"
               render={({ field }) => (
-                <FormItem className="flex items-center gap-2">
+                <FormItem className="flex items-center gap-2 mb-2">
                   <Checkbox checked={field.value} onCheckedChange={field.onChange} />
-                  <Label className="mt-2">Free Shipping</Label>
+                  <Label className="mb-[1px]">Free Shipping</Label>
                 </FormItem>
               )}
             />

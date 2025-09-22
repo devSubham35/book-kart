@@ -4,14 +4,65 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { PAGE_PATHS } from "@/routes/pagePaths";
 import { Card, CardContent } from "@/components/ui/card";
-import { BookOpen, DollarSign, Headphones, ShieldCheck, ShoppingCart, Star, Truck } from "lucide-react";
+import {
+  BookOpen,
+  DollarSign,
+  Headphones,
+  ShieldCheck,
+  ShoppingCart,
+  Star,
+  Truck,
+} from "lucide-react";
 import SellBookUI from "@/modules/sell-book/pages/SellBookUI";
+
+// Configs for "How It Works"
+const howItWorks = [
+  {
+    icon: BookOpen,
+    title: "Browse Books",
+    description: "Explore our wide collection of new & pre-loved books.",
+  },
+  {
+    icon: ShoppingCart,
+    title: "Easy Purchase",
+    description: "Add books to cart, checkout securely, and enjoy reading.",
+  },
+  {
+    icon: Truck,
+    title: "Fast Delivery",
+    description: "Get books delivered to your doorstep in just a few days.",
+  },
+  {
+    icon: DollarSign,
+    title: "Sell Your Books",
+    description: "List your used books, set your price, and get paid quickly.",
+  },
+];
+
+// Configs for "Why Choose Us"
+const whyChooseUs = [
+  {
+    icon: Star,
+    title: "Wide Selection",
+    description: "From bestsellers to rare finds, we’ve got books for everyone.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Trusted Platform",
+    description: "Secure payments, verified sellers, and reliable service.",
+  },
+  {
+    icon: Headphones,
+    title: "24/7 Support",
+    description: "Our friendly team is always here to help you out.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-background to-muted">
+    <div className="relative flex flex-col min-h-screen bg-gradient-to-b from-background to-muted">
       {/* Hero Section */}
-      <main className="min-h-[70vh] flex flex-col items-center justify-center flex-1 text-center px-6 py-20">
+      <main className="z-50 min-h-[70vh] flex flex-col items-center justify-center flex-1 text-center px-6 py-20">
         <h1 className="text-4xl md:text-6xl font-bold">
           Buy & Sell Books <br /> Anytime, Anywhere
         </h1>
@@ -23,8 +74,19 @@ export default function Home() {
           <Link href={PAGE_PATHS.books}>
             <Button className="text-base py-5">Start Shopping</Button>
           </Link>
-          <SellBookUI variant="outline" className="text-base py-5"/>
+          <SellBookUI variant="outline" className="text-base py-5" />
         </div>
+
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            backgroundImage: `
+              repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.1) 1px, transparent 1px, transparent 20px),
+              repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.1) 1px, transparent 1px, transparent 20px)
+            `,
+            backgroundSize: "40px 40px",
+          }}
+        />
       </main>
 
       {/* How It Works Section */}
@@ -35,42 +97,15 @@ export default function Home() {
           steps and get started in just minutes.
         </p>
         <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          <Card className="p-6 shadow-none">
-            <CardContent className="flex flex-col items-center text-center gap-3">
-              <BookOpen className="w-10 h-10 text-primary" />
-              <h3 className="font-semibold text-lg">Browse Books</h3>
-              <p className="text-sm text-muted-foreground">
-                Explore our wide collection of new & pre-loved books.
-              </p>
-            </CardContent>
-          </Card>
-          <Card className="p-6 shadow-none">
-            <CardContent className="flex flex-col items-center text-center gap-3">
-              <ShoppingCart className="w-10 h-10 text-primary" />
-              <h3 className="font-semibold text-lg">Easy Purchase</h3>
-              <p className="text-sm text-muted-foreground">
-                Add books to cart, checkout securely, and enjoy reading.
-              </p>
-            </CardContent>
-          </Card>
-          <Card className="p-6 shadow-none">
-            <CardContent className="flex flex-col items-center text-center gap-3">
-              <Truck className="w-10 h-10 text-primary" />
-              <h3 className="font-semibold text-lg">Fast Delivery</h3>
-              <p className="text-sm text-muted-foreground">
-                Get books delivered to your doorstep in just a few days.
-              </p>
-            </CardContent>
-          </Card>
-          <Card className="p-6 shadow-none">
-            <CardContent className="flex flex-col items-center text-center gap-3">
-              <DollarSign className="w-10 h-10 text-primary" />
-              <h3 className="font-semibold text-lg">Sell Your Books</h3>
-              <p className="text-sm text-muted-foreground">
-                List your used books, set your price, and get paid quickly.
-              </p>
-            </CardContent>
-          </Card>
+          {howItWorks.map(({ icon: Icon, title, description }) => (
+            <Card key={title} className="p-6 shadow-none z-50">
+              <CardContent className="flex flex-col items-center text-center gap-3">
+                <Icon className="w-10 h-10 text-primary" />
+                <h3 className="font-semibold text-lg">{title}</h3>
+                <p className="text-sm text-muted-foreground">{description}</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
 
@@ -82,37 +117,19 @@ export default function Home() {
           reading journey seamless, affordable, and trustworthy.
         </p>
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <Card className="p-6 shadow-none">
-            <CardContent className="flex flex-col items-center gap-3">
-              <Star className="w-10 h-10 text-primary" />
-              <h3 className="font-semibold text-lg">Wide Selection</h3>
-              <p className="text-sm text-muted-foreground">
-                From bestsellers to rare finds, we’ve got books for everyone.
-              </p>
-            </CardContent>
-          </Card>
-          <Card className="p-6 shadow-none">
-            <CardContent className="flex flex-col items-center gap-3">
-              <ShieldCheck className="w-10 h-10 text-primary" />
-              <h3 className="font-semibold text-lg">Trusted Platform</h3>
-              <p className="text-sm text-muted-foreground">
-                Secure payments, verified sellers, and reliable service.
-              </p>
-            </CardContent>
-          </Card>
-          <Card className="p-6 shadow-none">
-            <CardContent className="flex flex-col items-center gap-3">
-              <Headphones className="w-10 h-10 text-primary" />
-              <h3 className="font-semibold text-lg">24/7 Support</h3>
-              <p className="text-sm text-muted-foreground">
-                Our friendly team is always here to help you out.
-              </p>
-            </CardContent>
-          </Card>
+          {whyChooseUs.map(({ icon: Icon, title, description }) => (
+            <Card key={title} className="p-6 shadow-none z-50">
+              <CardContent className="flex flex-col items-center gap-3">
+                <Icon className="w-10 h-10 text-primary" />
+                <h3 className="font-semibold text-lg">{title}</h3>
+                <p className="text-sm text-muted-foreground">{description}</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
 
-      {/* About Us & Contact Us Row Section */}
+      {/* About Us & Contact Us Section */}
       <section className="py-16 px-6 bg-background">
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* About Us */}

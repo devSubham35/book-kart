@@ -3,16 +3,17 @@
 import Link from "next/link";
 import { TbLogout } from "react-icons/tb";
 import { AiFillProduct } from "react-icons/ai";
+import { usePathname } from "next/navigation";
 import { PAGE_PATHS } from "@/routes/pagePaths";
 import { Button } from "@/components/ui/button";
 import { MdOutlineShoppingBag } from "react-icons/md";
-import { IoPersonOutline, IoHeartOutline } from "react-icons/io5";
-import { usePathname } from "next/navigation";
+import { HiOutlineHeart, HiUser } from "react-icons/hi";
+
 
 export const menuItems = [
   {
     label: "Profile",
-    icon: IoPersonOutline,
+    icon: HiUser,
     href: PAGE_PATHS.account.profile,
   },
   {
@@ -27,7 +28,7 @@ export const menuItems = [
   },
   {
     label: "Wishlist",
-    icon: IoHeartOutline,
+    icon: HiOutlineHeart,
     href: PAGE_PATHS.account.wishlist,
   },
 ];
@@ -36,7 +37,7 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-64 h-full p-4 flex flex-col justify-between bg-accent dark:bg-card rounded-xl">
+    <aside className="w-64 h-full p-4 flex flex-col justify-between bg-muted border dark:bg-card rounded-xl">
       <div>
         {/* User Info */}
         <div className="mb-6 text-center">
