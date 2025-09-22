@@ -49,8 +49,8 @@ const BookCard: React.FC<BookCardProps> = ({
             {/* Favorite Button */}
             {isWishItem && <button
                 onClick={onFavoriteToggle}
-                className="absolute top-3 right-3 text-primary z-10 transition-colors duration-200 size-8 rounded-full
-                bg-secondary dark:bg-black flex items-center justify-center"
+                className="absolute top-3 right-3 text-rose-600 z-10 transition-colors duration-200 size-8 rounded-full
+                bg-background border flex items-center justify-center"
             >
                 {isFavorite ? <IoHeartSharp size={20} /> : <IoHeartOutline size={20} />}
             </button>

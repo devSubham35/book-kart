@@ -3,6 +3,7 @@ import { useState } from "react";
 import CartItemCard from "../components/CartItemCard";
 import OrderSummary from "../components/OrderSummary";
 import { bookData } from "@/data";
+import AddressUI from "../components/AddressUI";
 
 export interface cartItemType {
     id: number,
@@ -64,8 +65,8 @@ const CartUI = () => {
     };
 
     return (
-        <div className="container py-6 flex flex-col lg:flex-row gap-6">
-            <div className="flex-1 border rounded-lg">
+        <div className="container py-6 flex flex-col lg:flex-row gap-6 scrollbar-hidden">
+            <div className="flex-1 border rounded-lg h-fit">
                 <h2 className="text-xl font-semibold p-4 border-b">Shopping Cart</h2>
                 {cart.map((item) => (
                     <CartItemCard
@@ -78,8 +79,9 @@ const CartUI = () => {
                     />
                 ))}
             </div>
-            <div className="w-full lg:w-1/3">
+            <div className="w-full lg:w-1/3 space-y-6">
                 <OrderSummary cart={cart} />
+                <AddressUI />
             </div>
         </div>
     );

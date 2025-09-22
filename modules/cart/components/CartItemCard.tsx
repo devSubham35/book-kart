@@ -32,12 +32,12 @@ const CartItemCard = ({
                     alt={item.name}
                     width={70}
                     height={70}
-                    className="rounded-lg object-cover w-[70px] h-[70px] sm:w-[90px] sm:h-[90px]"
+                    className="rounded-lg object-cover w-[50px] h-[50px] sm:w-[50px] sm:h-[50px]"
                 />
                 <div className="flex flex-col">
-                    <h3 className="font-medium text-base sm:text-lg">{item.name}</h3>
+                    <h3 className="font-medium text-sm">{item.name}</h3>
                     <div className="flex items-center gap-2 flex-wrap">
-                        <p className="text-base font-semibold text-primary">${item.price}</p>
+                        <p className="text-base font-semibold">${item.price}</p>
                         <p className="text-sm text-gray-500 line-through">
                             ${item.originalPrice}
                         </p>

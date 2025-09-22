@@ -14,7 +14,7 @@ export default function Provider({ children }: { children: ReactNode }) {
           <ThemeProvider attribute="class">
             <main>
               <Navbar />
-              <div className="min-h-[calc(100vh-64px)]">{children}</div>
+              <div className="min-h-[calc(100vh-64px)] scrollbar-hidden">{children}</div>
             </main>
           </ThemeProvider>
           <Toaster

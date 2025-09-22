@@ -10,7 +10,7 @@ const AccountLayoutUI = ({ children }: { children: React.ReactNode }) => {
             </div>
 
             {/* Main Content */}
-            <div className="flex-1 w-full overflow-y-auto pr-2">
+            <div className="flex-1 w-full overflow-y-auto pr-2 scrollbar-hidden">
                 {children}
             </div>
         </div>

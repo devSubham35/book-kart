@@ -60,9 +60,20 @@ const whyChooseUs = [
 
 export default function Home() {
   return (
-    <div className="relative flex flex-col min-h-screen bg-gradient-to-b from-background to-muted">
+    <div
+      className="relative flex flex-col min-h-screen bg-gradient-to-b from-background to-muted scrollbar-hidden"
+      style={{
+        overflowY: "auto",
+        backgroundImage: `
+        repeating-linear-gradient(45deg, var(--color-graphic-overlay) 0, var(--color-graphic-overlay) 1px, transparent 1px, transparent 20px),
+        repeating-linear-gradient(-45deg, var(--color-graphic-overlay) 0, var(--color-graphic-overlay) 1px, transparent 1px, transparent 20px)
+      `,
+        backgroundSize: "40px 40px",
+      }}
+    >
+
       {/* Hero Section */}
-      <main className="z-50 min-h-[70vh] flex flex-col items-center justify-center flex-1 text-center px-6 py-20">
+      <main className="min-h-[70vh] flex flex-col items-center justify-center flex-1 text-center px-6 py-20">
         <h1 className="text-4xl md:text-6xl font-bold">
           Buy & Sell Books <br /> Anytime, Anywhere
         </h1>
@@ -76,17 +87,6 @@ export default function Home() {
           </Link>
           <SellBookUI variant="outline" className="text-base py-5" />
         </div>
-
-        <div
-          className="absolute inset-0 z-0 pointer-events-none"
-          style={{
-            backgroundImage: `
-              repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.1) 1px, transparent 1px, transparent 20px),
-              repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.1) 1px, transparent 1px, transparent 20px)
-            `,
-            backgroundSize: "40px 40px",
-          }}
-        />
       </main>
 
       {/* How It Works Section */}
@@ -98,7 +98,7 @@ export default function Home() {
         </p>
         <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {howItWorks.map(({ icon: Icon, title, description }) => (
-            <Card key={title} className="p-6 shadow-none z-50">
+            <Card key={title} className="p-6 shadow-none">
               <CardContent className="flex flex-col items-center text-center gap-3">
                 <Icon className="w-10 h-10 text-primary" />
                 <h3 className="font-semibold text-lg">{title}</h3>
@@ -118,7 +118,7 @@ export default function Home() {
         </p>
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {whyChooseUs.map(({ icon: Icon, title, description }) => (
-            <Card key={title} className="p-6 shadow-none z-50">
+            <Card key={title} className="p-6 shadow-none">
               <CardContent className="flex flex-col items-center gap-3">
                 <Icon className="w-10 h-10 text-primary" />
                 <h3 className="font-semibold text-lg">{title}</h3>
@@ -130,7 +130,7 @@ export default function Home() {
       </section>
 
       {/* About Us & Contact Us Section */}
-      <section className="py-16 px-6 bg-background">
+      <section className="py-16 px-6 bg-background z-20">
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* About Us */}
           <div className="text-center md:text-left">
