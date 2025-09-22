@@ -2,14 +2,13 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import SearchAutocomplete from "./SearchAutocomplete";
 import { PAGE_PATHS } from "@/routes/pagePaths";
+import SearchAutocomplete from "./SearchAutocomplete";
 
 export default function SearchInput() {
   const router = useRouter();
 
   const handleSelect = (searchTerm: string) => {
-    // Navigate to /books page with query parameter
     router.push(`${PAGE_PATHS.books}?q=${encodeURIComponent(searchTerm)}`);
   };
 

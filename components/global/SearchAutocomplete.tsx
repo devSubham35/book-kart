@@ -3,6 +3,7 @@
 import { Input } from "../ui/input";
 import { useEffect, useRef, useState, KeyboardEvent } from "react";
 import { Clock, LucideIcon, Search, TrendingUp, X } from "lucide-react";
+import { TbSearch } from "react-icons/tb";
 
 interface SearchAutocompleteProps {
   placeholder: string;
@@ -194,6 +195,7 @@ const SearchAutocomplete: React.FC<SearchAutocompleteProps> = ({
             className={`border-0 rounded-l-md rounded-r-none focus-visible:ring-0 ${inputClassName}`}
             autoFocus={autoFocus}
             disabled={disabled}
+            startIcon={<TbSearch />}
           />
           {clearable && query && (
             <div

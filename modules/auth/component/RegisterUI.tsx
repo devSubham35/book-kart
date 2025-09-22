@@ -12,8 +12,10 @@ import { Separator } from "@/components/ui/separator";
 import SocialLogin from "@/components/global/SocialLogin";
 import { registerSchema } from "../schema/register.schema";
 import { useRegisterMutation } from "@/api/hook/auth/hook";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { BookOpen, ShoppingCart, Users } from "lucide-react";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { GoLock } from "react-icons/go";
+import { AiOutlineMail } from "react-icons/ai";
 
 const RegisterUI = () => {
   const router = useRouter();
@@ -107,7 +109,12 @@ const RegisterUI = () => {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input type="email" placeholder="Email" {...field} />
+                        <Input
+                          {...field}
+                          type="email"
+                          placeholder="Email"
+                          startIcon={<AiOutlineMail />}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -121,7 +128,12 @@ const RegisterUI = () => {
                     <FormItem>
                       <FormLabel>Password</FormLabel>
                       <FormControl>
-                        <Input type="password" placeholder="Password" {...field} />
+                        <Input
+                          {...field}
+                          type="password"
+                          startIcon={<GoLock />}
+                          placeholder="Enter Password"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -135,7 +147,12 @@ const RegisterUI = () => {
                     <FormItem>
                       <FormLabel>Confirm Password</FormLabel>
                       <FormControl>
-                        <Input type="password" placeholder="Confirm Password" {...field} />
+                        <Input
+                          {...field}
+                          type="password"
+                          startIcon={<GoLock />}
+                          placeholder="Enter Confirm Password"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

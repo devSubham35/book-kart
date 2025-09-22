@@ -2,16 +2,18 @@
 
 import { z } from "zod";
 import Link from "next/link";
+import { GoLock } from "react-icons/go";
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
+import { AiOutlineMail } from "react-icons/ai";
 import { Button } from "@/components/ui/button";
 import { PAGE_PATHS } from "@/routes/pagePaths";
 import { loginSchema } from "../schema/login.schema";
+import { Lock, BookOpen, Users } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Separator } from "@/components/ui/separator";
 import SocialLogin from "@/components/global/SocialLogin";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Lock, BookOpen, Users } from "lucide-react";
 
 const LoginUI = () => {
   const form = useForm<z.infer<typeof loginSchema>>({
@@ -99,7 +101,12 @@ const LoginUI = () => {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input type="email" placeholder="Email" {...field} />
+                        <Input
+                          {...field}
+                          type="email"
+                          placeholder="Email"
+                          startIcon={<AiOutlineMail />}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -113,7 +120,12 @@ const LoginUI = () => {
                     <FormItem>
                       <FormLabel>Password</FormLabel>
                       <FormControl>
-                        <Input type="password" placeholder="Password" {...field} />
+                        <Input
+                          {...field}
+                          type="password"
+                          placeholder="Password"
+                          startIcon={<GoLock />}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
