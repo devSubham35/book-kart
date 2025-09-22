@@ -65,7 +65,7 @@ const BookCard: React.FC<BookCardProps> = ({
                         {discount} OFF
                     </div>
                 )}
-                <div className="w-full h-40 rounded-t-xl overflow-hidden shadow-md cursor-pointer">
+                <div className="w-full h-32 rounded-t-xl overflow-hidden shadow-md cursor-pointer">
                     <Image
                         src={image}
                         alt={title}
@@ -93,7 +93,7 @@ const BookCard: React.FC<BookCardProps> = ({
                 </div>
             </div>
 
-            {canBuy && <Button className="w-full">
+            {canBuy && <Button onClick={()=> router.push(PAGE_PATHS.cart)} className="w-full">
                 <span><FaCartShopping /></span>
                 Buy Now
             </Button>

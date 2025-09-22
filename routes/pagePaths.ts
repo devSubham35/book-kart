@@ -7,6 +7,7 @@ export const PAGE_PATHS = {
     },
 
     books: "/books",
+    cart: "/cart",
 
     account: {
         orders: "/account/orders",

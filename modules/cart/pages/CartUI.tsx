@@ -64,7 +64,7 @@ const CartUI = () => {
     };
 
     return (
-        <div className="container p-6 flex flex-col lg:flex-row gap-6">
+        <div className="container py-6 flex flex-col lg:flex-row gap-6">
             <div className="flex-1 border rounded-lg">
                 <h2 className="text-xl font-semibold p-4 border-b">Shopping Cart</h2>
                 {cart.map((item) => (

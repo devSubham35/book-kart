@@ -28,7 +28,7 @@ const ProfileAvatar: React.FC<ProfileAvatarProps> = ({ onSignOut }) => {
         </Avatar>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="end" className="w-56">
+      <DropdownMenuContent align="end" className="w-56 z-[120]">
         <DropdownMenuLabel>
           <div className="flex flex-col">
             <span className="font-medium">Guest</span>
