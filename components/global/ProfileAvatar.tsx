@@ -10,6 +10,7 @@ import {
   DropdownMenuSeparator, DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
+import { ThemeToggler } from "./ThemeToggler";
 
 interface ProfileAvatarProps {
   onSignOut?: () => void;
@@ -30,11 +31,16 @@ const ProfileAvatar: React.FC<ProfileAvatarProps> = ({ onSignOut }) => {
 
       <DropdownMenuContent align="end" className="w-56 z-[120]">
         <DropdownMenuLabel>
-          <div className="flex flex-col">
-            <span className="font-medium">Guest</span>
-            <span className="text-xs text-muted-foreground">
-              abc@gmail.com
-            </span>
+          <div className="flex justify-between">
+            <div className="flex flex-col">
+              <span className="font-medium">Guest</span>
+              <span className="text-xs text-muted-foreground">
+                abc@gmail.com
+              </span>
+            </div>
+            <div className="md:hidden">
+              <ThemeToggler />
+            </div>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />

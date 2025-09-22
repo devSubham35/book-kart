@@ -44,7 +44,7 @@ export default function SearchInput() {
       suggestionClassName=""
       onSelect={handleSelect}
       onSearch={handleSearch}
-      inputClassName="w-lg h-9"
+      inputClassName="lg:max-w-xl h-9"
       showRecentSearches={false}
       showTrendingSearches={false}
     />

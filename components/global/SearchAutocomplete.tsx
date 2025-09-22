@@ -192,14 +192,15 @@ const SearchAutocomplete: React.FC<SearchAutocompleteProps> = ({
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             onFocus={handleFocus}
-            className={`border-0 rounded-l-md rounded-r-none focus-visible:ring-0 ${inputClassName}`}
+            className={`!w-full border-0 rounded-l-md rounded-r-none focus-visible:ring-0 ${inputClassName}`}
             autoFocus={autoFocus}
             disabled={disabled}
             startIcon={<TbSearch />}
           />
           {clearable && query && (
             <div
-              className="absolute right-1 top-1/2 transform -translate-y-1/2 h-8 w-8 bg-transparent flex justify-center items-center"
+              className="absolute right-1 top-1/2 transform -translate-y-1/2 h-8 w-8
+              flex justify-center items-center"
               onClick={clearSearch}
             >
               <X className="w-4 h-4" />
