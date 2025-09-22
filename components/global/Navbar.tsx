@@ -23,7 +23,7 @@ const Navbar = () => {
     <>
       {/* Top Navbar */}
       <nav className="h-16 bg-background border-b sticky top-0 left-0 z-[20]">
-        <div className="container h-full flex items-center justify-between px-4 sm:px-6 lg:px-0">
+        <div className="container h-full flex items-center justify-between p-4 2xl:p-0">
 
           <div className="flex items-center gap-4">
             <Link

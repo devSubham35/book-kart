@@ -4,6 +4,9 @@ import { books } from "@/data";
 import React, { useState } from "react";
 import BookCard from "../components/BookCard";
 import BookFilterPanel from "../components/BookFilterPanel";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Filter } from "lucide-react";
 
 const conditionOptions = [
   { label: "New", value: "new" },
@@ -28,22 +31,20 @@ const BookListingUI = () => {
   return (
     <div className="flex gap-6 h-[calc(100vh-4rem)] container py-6">
       
-      {/* Filters */}
-      <div className="w-58 shrink-0 sticky top-6 self-start">
+      {/* Desktop Sidebar Filters */}
+      <div className="hidden lg:block w-60 shrink-0 sticky top-6 self-start space-y-5">
         <BookFilterPanel
           title="Condition"
           options={conditionOptions}
           onSelect={setSelectedCondition}
           selectedValues={selectedCondition}
         />
-
         <BookFilterPanel
           title="Category"
           options={categoryOptions}
           onSelect={setSelectedCategory}
           selectedValues={selectedCategory}
         />
-
         <BookFilterPanel
           title="Class Type"
           options={classTypeOptions}
@@ -52,9 +53,41 @@ const BookListingUI = () => {
         />
       </div>
 
+      {/* Mobile Filter Button */}
+      <div className="lg:hidden fixed bottom-4 right-4 z-50">
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button className="rounded-full p-3 shadow-lg">
+              <Filter className="w-5 h-5" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left" className="w-72 overflow-y-auto p-5">
+            <h2 className="font-bold text-lg mb-4">Filters</h2>
+            <BookFilterPanel
+              title="Condition"
+              options={conditionOptions}
+              onSelect={setSelectedCondition}
+              selectedValues={selectedCondition}
+            />
+            <BookFilterPanel
+              title="Category"
+              options={categoryOptions}
+              onSelect={setSelectedCategory}
+              selectedValues={selectedCategory}
+            />
+            <BookFilterPanel
+              title="Class Type"
+              options={classTypeOptions}
+              onSelect={setSelectedClassType}
+              selectedValues={selectedClassType}
+            />
+          </SheetContent>
+        </Sheet>
+      </div>
+
       {/* Book Cards */}
-      <div className="w-full overflow-y-auto pr-2">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
+      <div className="w-full lg:overflow-y-auto lg:pr-2">
+        <div className="grid rid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4">
           {books.map((book) => (
             <BookCard
               id={book.id}
@@ -71,7 +104,6 @@ const BookListingUI = () => {
           ))}
         </div>
       </div>
-
     </div>
   );
 };

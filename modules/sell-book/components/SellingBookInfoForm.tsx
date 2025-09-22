@@ -81,7 +81,7 @@ export default function SellingBookInfoForm({
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-2 gap-4">
+      <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {textFields.map((fieldName) => (
           <FormField
             key={fieldName}
@@ -129,7 +129,7 @@ export default function SellingBookInfoForm({
           control={control}
           name="book_description"
           render={({ field }) => (
-            <FormItem className="col-span-2">
+            <FormItem className="lg:col-span-2">
               <Label>Description</Label>
               <Textarea {...field} placeholder="Enter description" />
               <FormMessage>{errors.book_description?.message}</FormMessage>
@@ -137,7 +137,7 @@ export default function SellingBookInfoForm({
         />
 
         {/* Images */}
-        <FormItem className="col-span-2">
+        <FormItem className="lg:col-span-2">
           <Label>Upload Images</Label>
           <Controller
             name="book_images"
@@ -150,7 +150,7 @@ export default function SellingBookInfoForm({
         </FormItem>
 
         {/* Submit */}
-        <div className="col-span-2 flex justify-end">
+        <div className="lg:col-span-2 flex justify-end">
           <Button type="submit">Next</Button>
         </div>
       </form>

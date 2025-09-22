@@ -41,7 +41,7 @@ const BookFilterPanel: React.FC<BookFilterPanelProps> = ({
     <Collapsible
       open={isOpen}
       onOpenChange={setIsOpen}
-      className="border rounded-xl shadow-sm bg-background mb-4"
+      className="border rounded-xl shadow-sm bg-background"
     >
       <CollapsibleTrigger
         asChild
