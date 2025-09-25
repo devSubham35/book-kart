@@ -14,6 +14,7 @@ import {
   Truck,
 } from "lucide-react";
 import SellBookUI from "@/modules/sell-book/pages/SellBookUI";
+import ContactForm from "@/modules/landing/ContactForm";
 
 // Configs for "How It Works"
 const howItWorks = [
@@ -148,27 +149,11 @@ export default function Home() {
 
           {/* Contact Us */}
           <div className="text-center md:text-left">
-            <h2 className="text-3xl font-bold mb-6">Contact Us</h2>
+            <h2 className="text-3xl font-bold mb-2">Contact Us</h2>
             <p className="text-muted-foreground mb-6">
               Have questions? We’d love to hear from you.
             </p>
-            <form className="flex flex-col gap-4">
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="w-full border rounded-lg p-3"
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full border rounded-lg p-3"
-              />
-              <textarea
-                placeholder="Your Message"
-                className="w-full border rounded-lg p-3 h-32"
-              />
-              <Button className="px-6 w-fit">Send Message</Button>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </section>

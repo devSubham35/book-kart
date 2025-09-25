@@ -29,7 +29,7 @@ const BookListingUI = () => {
   const [selectedClassType, setSelectedClassType] = useState<string[]>([]);
 
   return (
-    <div className="flex gap-6 h-[calc(100vh-4rem)] container py-6">
+    <div className="flex gap-6 h-[calc(100vh-4rem)] container lg:py-6">
       
       {/* Desktop Sidebar Filters */}
       <div className="hidden lg:block w-60 shrink-0 sticky top-6 self-start space-y-5">

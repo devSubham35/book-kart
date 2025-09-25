@@ -107,7 +107,7 @@ const Navbar = () => {
       </nav>
 
       {/* Search bar below nav on mobile */}
-      {!isAuthPage && <div className="block lg:hidden px-4 mt-4">
+      {!isAuthPage && <div className="block lg:hidden px-4 mt-4 pb-4">
         <SearchInput />
       </div>
       }
