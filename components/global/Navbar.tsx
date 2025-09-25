@@ -11,11 +11,12 @@ import SellBookUI from "@/modules/sell-book/pages/SellBookUI";
 import SearchInput from "./SearchInput";
 import { ThemeToggler } from "./ThemeToggler";
 import { usePathname } from "next/navigation";
+import CartIcon from "./CartIcon";
 
 const Navbar = () => {
 
   const pathname = usePathname();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const isAuthPage = pathname === PAGE_PATHS.login || pathname === PAGE_PATHS.register
 
@@ -79,6 +80,8 @@ const Navbar = () => {
                 </Sheet>
               </div>
             )}
+
+            <CartIcon />
 
             {/* Show profile avatar if logged in */}
             {isLoggedIn && (

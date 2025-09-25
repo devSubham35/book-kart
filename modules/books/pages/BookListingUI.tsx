@@ -24,6 +24,7 @@ const classTypeOptions = [
 ];
 
 const BookListingUI = () => {
+  
   const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
   const [selectedCondition, setSelectedCondition] = useState<string[]>([]);
   const [selectedClassType, setSelectedClassType] = useState<string[]>([]);
