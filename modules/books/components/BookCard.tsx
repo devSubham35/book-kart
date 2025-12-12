@@ -5,9 +5,10 @@ import { PAGE_PATHS } from "@/routes/pagePaths";
 import { Button } from "@/components/ui/button";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoHeartOutline, IoHeartSharp } from "react-icons/io5";
+import { useCartStore } from "@/zustand/cartStore";
 
 interface BookCardProps {
-  id?: string | number;
+  id?: string;
   image: string;
   title: string;
   price: number;
@@ -35,7 +36,20 @@ const BookCard: React.FC<BookCardProps> = ({
   isWishItem = true,
   isFavorite = false,
 }) => {
+
   const router = useRouter();
+  const { addItem } = useCartStore();
+
+  const handleAddToCart =()=>{
+    router.push(PAGE_PATHS.cart)
+    addItem({
+      quantity: 1,
+      id: id as string,
+      name: title as string,
+      price: originalPrice as number,
+      discountPrice: Number(price) as number,
+    })
+  }
 
   const handleNavigateProductDetailsPage = () => {
     router.push(`${PAGE_PATHS.books}/${id}`);
@@ -111,7 +125,7 @@ const BookCard: React.FC<BookCardProps> = ({
         {/* Push button to bottom */}
         {canBuy && (
           <Button
-            onClick={() => router.push(PAGE_PATHS.cart)}
+            onClick={handleAddToCart}
             className="w-full mt-auto"
           >
             <span>

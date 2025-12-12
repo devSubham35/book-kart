@@ -11,11 +11,12 @@ import SellBookUI from "@/modules/sell-book/pages/SellBookUI";
 import SearchInput from "./SearchInput";
 import { ThemeToggler } from "./ThemeToggler";
 import { usePathname } from "next/navigation";
+import CartIcon from "./CartIcon";
 
 const Navbar = () => {
 
   const pathname = usePathname();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const isAuthPage = pathname === PAGE_PATHS.login || pathname === PAGE_PATHS.register
 
@@ -80,6 +81,8 @@ const Navbar = () => {
               </div>
             )}
 
+            <CartIcon />
+
             {/* Show profile avatar if logged in */}
             {isLoggedIn && (
               <ProfileAvatar onSignOut={() => setIsLoggedIn(false)} />
@@ -107,7 +110,7 @@ const Navbar = () => {
       </nav>
 
       {/* Search bar below nav on mobile */}
-      {!isAuthPage && <div className="block lg:hidden px-4 mt-4">
+      {!isAuthPage && <div className="block lg:hidden px-4 mt-4 pb-4">
         <SearchInput />
       </div>
       }

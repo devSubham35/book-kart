@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import { BsImageFill } from "react-icons/bs";
 import { TbTrashFilled } from "react-icons/tb";
-import { cartItemType } from "../pages/CartUI";
+import { CartItem } from "@/zustand/cartStore";
 import { Button } from "@/components/ui/button";
 import WishButton from "@/components/global/WishButton";
 
 interface CartItemCardProps {
-    item: cartItemType;
+    item: CartItem;
     onDelete?: () => void;
     onIncrement?: () => void;
     onDecrement?: () => void;
@@ -27,19 +28,28 @@ const CartItemCard = ({
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-4 border-b last:border-b-0 w-full">
             {/* Left Section */}
             <div className="flex items-center gap-4 w-full sm:w-auto">
-                <Image
-                    src={item.image}
-                    alt={item.name}
-                    width={70}
-                    height={70}
-                    className="rounded-lg object-cover w-[50px] h-[50px] sm:w-[50px] sm:h-[50px]"
-                />
+                {
+                    item?.image
+                        ?
+                        <Image
+                            width={70}
+                            height={70}
+                            alt={item.name}
+                            src={item?.image ?? ""}
+                            className="rounded-lg object-cover w-[50px] h-[50px] sm:w-[50px] sm:h-[50px]"
+                        />
+                        :
+                        <div className="rounded-lg object-cover w-[50px] h-[50px] 
+                        sm:w-[50px] sm:h-[50px] flex justify-center items-center border text-2xl">
+                            <BsImageFill />
+                        </div>
+                }
                 <div className="flex flex-col">
                     <h3 className="font-medium text-sm">{item.name}</h3>
                     <div className="flex items-center gap-2 flex-wrap">
                         <p className="text-base font-semibold">${item.price}</p>
                         <p className="text-sm text-gray-500 line-through">
-                            ${item.originalPrice}
+                            ${item.discountPrice}
                         </p>
                     </div>
                 </div>
